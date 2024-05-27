@@ -6,7 +6,7 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 md:p-24">
+    <main className="flex min-h-screen flex-col items-center justify-start px-8 py-16 md:px-16 md:py-32 mx-auto max-w-6xl">
       <TypographyH1>42cal</TypographyH1>
       <TypographyLead className="my-2 md:my-6 text-center">
         An iCal API to see the 42 events in a calendar.
