@@ -10,10 +10,11 @@ export type ClipboardBlockProps = {
 };
 
 export function ClipboardBlock({ className, disabled = false, value }: ClipboardBlockProps) {
+  const onClick = () => navigator.clipboard.writeText(value);
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
-      <Button className="w-full" disabled={disabled}>
+      <Button className="w-full" onClick={onClick} disabled={disabled}>
         <ClipboardCopyIcon className="h-4 w-4 mr-2" />
         Copy to clipboard
       </Button>
