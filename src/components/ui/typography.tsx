@@ -22,3 +22,7 @@ export function TypographyH2({ children, className }: TypographyProps) {
 export function TypographyLead({ children, className }: TypographyProps) {
   return <p className={cn("text-xl text-muted-foreground", className)}>{children}</p>;
 }
+
+export function TypographyCode({ children, className }: TypographyProps) {
+  return <code className={cn("block rounded-md break-words p-2 bg-muted", className)}>{children}</code>;
+}
