@@ -18,7 +18,7 @@ export function QueryGenerator({ campuses }: QueryGeneratorProps) {
     <div className="w-full mt-20">
       <TypographyH2>Configure your own route</TypographyH2>
       <QueryGeneratorForm filters={filters} setFilters={setFilters} campuses={campuses} />
-      <ClipboardBlock disabled={url === null}>{url}</ClipboardBlock>
+      <ClipboardBlock disabled={url === null} value={url} />
     </div>
   );
 }
