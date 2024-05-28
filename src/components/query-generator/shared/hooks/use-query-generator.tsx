@@ -8,7 +8,9 @@ export type UseQueryGeneratorParams = {
 
 export function useQueryGenerator({ defaultFilters }: UseQueryGeneratorParams) {
   const [filters, setFilters] = useState<QueryGeneratorFilters>(defaultFilters);
-  const [url, setUrl] = useState(generateQueryUrlFromFilters(process.env.NEXT_PUBLIC_API_BASE_URL || "", filters));
+  const [url, setUrl] = useState(
+    generateQueryUrlFromFilters(`${process.env.NEXT_PUBLIC_API_BASE_URL || ""}/events/`, filters),
+  );
 
   useEffect(() => {
     setUrl((url) => generateQueryUrlFromFilters(url, filters));
