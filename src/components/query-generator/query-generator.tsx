@@ -12,12 +12,20 @@ export type QueryGeneratorProps = {
 };
 
 export function QueryGenerator({ campuses }: QueryGeneratorProps) {
-  const { url, filters, setFilters } = useQueryGenerator({ defaultFilters: QUERY_GENERATOR_DEFAULT_FILTERS });
+  const { url, basicToken, setBasicToken, filters, setFilters } = useQueryGenerator({
+    defaultFilters: QUERY_GENERATOR_DEFAULT_FILTERS,
+  });
 
   return (
     <div className="w-full mt-20">
       <TypographyH2>Configure your own route</TypographyH2>
-      <QueryGeneratorForm filters={filters} setFilters={setFilters} campuses={campuses} />
+      <QueryGeneratorForm
+        basicToken={basicToken}
+        setBasicToken={setBasicToken}
+        filters={filters}
+        setFilters={setFilters}
+        campuses={campuses}
+      />
       <ClipboardBlock disabled={url === null} value={url} />
     </div>
   );
