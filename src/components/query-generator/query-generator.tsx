@@ -12,7 +12,7 @@ export type QueryGeneratorProps = {
 };
 
 export function QueryGenerator({ campuses }: QueryGeneratorProps) {
-  const { url, basicToken, setBasicToken, filters, setFilters } = useQueryGenerator({
+  const { url, basicToken, setBasicToken, readonlyBasicToken, filters, setFilters } = useQueryGenerator({
     defaultFilters: QUERY_GENERATOR_DEFAULT_FILTERS,
   });
 
@@ -22,6 +22,7 @@ export function QueryGenerator({ campuses }: QueryGeneratorProps) {
       <QueryGeneratorForm
         basicToken={basicToken}
         setBasicToken={setBasicToken}
+        readonlyBasicToken={readonlyBasicToken}
         filters={filters}
         setFilters={setFilters}
         campuses={campuses}

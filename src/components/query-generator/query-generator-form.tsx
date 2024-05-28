@@ -8,6 +8,7 @@ export type QueryGeneratorFormProps = {
   campuses: FindFtCampusesDto;
   basicToken: string;
   setBasicToken: Dispatch<SetStateAction<string>>;
+  readonlyBasicToken?: boolean;
   filters: QueryGeneratorFilters;
   setFilters: Dispatch<SetStateAction<QueryGeneratorFilters>>;
 };
@@ -16,6 +17,7 @@ export function QueryGeneratorForm({
   campuses,
   basicToken,
   setBasicToken,
+  readonlyBasicToken = false,
   filters,
   setFilters,
 }: QueryGeneratorFormProps) {
@@ -29,6 +31,7 @@ export function QueryGeneratorForm({
         }}
       />
       <QueryGeneratorFormFieldBasicToken
+        disabled={readonlyBasicToken}
         basicToken={basicToken}
         onValueChange={(value) => {
           setBasicToken(value);
