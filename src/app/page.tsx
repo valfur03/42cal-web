@@ -4,8 +4,11 @@ import Link from "next/link";
 import { GITHUB_PROJECT_URL } from "@/common/constants/meta";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { QueryGenerator } from "@/components/query-generator/query-generator";
+import { fetchCampuses } from "@/lib/fetchers/fetch-campuses";
 
-export default function Home() {
+export default async function Home() {
+  const campuses = await fetchCampuses();
+
   return (
     <main className="flex w-screen min-h-screen flex-col items-center justify-start px-8 py-16 md:px-16 md:py-32 mx-auto max-w-6xl">
       <TypographyH1>42cal</TypographyH1>
@@ -17,7 +20,7 @@ export default function Home() {
           <GitHubLogoIcon className="h-5 w-5 mr-2" /> GitHub repository
         </Link>
       </Button>
-      <QueryGenerator />
+      <QueryGenerator campuses={campuses} />
     </main>
   );
 }
