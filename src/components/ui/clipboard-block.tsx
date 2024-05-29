@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ClipboardCopyIcon } from "@radix-ui/react-icons";
 import { TypographyCode } from "@/components/ui/typography";
 import { cn } from "@/lib/utils/cn";
+import { useToast } from "@/components/ui/use-toast";
 
 export type ClipboardBlockProps = {
   value: string;
@@ -10,7 +11,14 @@ export type ClipboardBlockProps = {
 };
 
 export function ClipboardBlock({ className, disabled = false, value }: ClipboardBlockProps) {
-  const onClick = () => navigator.clipboard.writeText(value);
+  const { toast } = useToast();
+
+  const onClick = () => {
+    navigator.clipboard.writeText(value);
+    toast({
+      description: "Copied to clipboard",
+    });
+  };
 
   return (
     <div className={cn("flex flex-col gap-4", className)}>
