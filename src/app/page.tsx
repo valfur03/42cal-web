@@ -5,6 +5,7 @@ import { GITHUB_PROJECT_URL } from "@/common/constants/meta";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { QueryGenerator } from "@/components/query-generator/query-generator";
 import { fetchCampuses } from "@/lib/fetchers/fetch-campuses";
+import { Suspense } from "react";
 
 export default async function Home() {
   const campuses = await fetchCampuses();
@@ -20,7 +21,9 @@ export default async function Home() {
           <GitHubLogoIcon className="h-5 w-5 mr-2" /> GitHub repository
         </Link>
       </Button>
-      <QueryGenerator campuses={campuses} />
+      <Suspense>
+        <QueryGenerator campuses={campuses} />
+      </Suspense>
     </main>
   );
 }
