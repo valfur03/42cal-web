@@ -19,6 +19,10 @@ export function TypographyH2({ children, className }: TypographyProps) {
   );
 }
 
+export function TypographyP({ children, className }: TypographyProps) {
+  return <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>{children}</p>;
+}
+
 export function TypographyOList({ children, className }: TypographyProps) {
   return <ul className={cn("my-6 ml-6 list-disc [&>li]:mt-2", className)}>{children}</ul>;
 }
