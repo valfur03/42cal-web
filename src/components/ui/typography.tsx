@@ -19,6 +19,10 @@ export function TypographyH2({ children, className }: TypographyProps) {
   );
 }
 
+export function TypographyOList({ children, className }: TypographyProps) {
+  return <ul className={cn("my-6 ml-6 list-disc [&>li]:mt-2", className)}>{children}</ul>;
+}
+
 export function TypographyLead({ children, className }: TypographyProps) {
   return <p className={cn("text-xl text-muted-foreground", className)}>{children}</p>;
 }
