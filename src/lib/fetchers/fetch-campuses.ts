@@ -4,7 +4,7 @@ import { findFtCampusesSchema } from "@/lib/fetchers/shared/types/find-ft-campus
 import { fetchWithAccessToken } from "@/lib/fetchers/shared/utils/fetch-with-access-token";
 
 export async function fetchCampuses() {
-  return getDataFromResponseOrThrow(fetchWithAccessToken(`${FT_API_BASE_URL}/v2/campus?sort=id&per_page=100`), {
+  return getDataFromResponseOrThrow(fetchWithAccessToken(`${FT_API_BASE_URL}/v2/campus?sort=name&per_page=100`), {
     response: findFtCampusesSchema,
   });
 }
